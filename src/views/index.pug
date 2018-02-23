@@ -1,0 +1,18 @@
+extends ./extends/layout
+
+block variables
+	- var title = 'Cloudflare Detector'
+
+block content
+	.container
+		.heading
+			form(action='/check', method='post')
+				.left
+					label Does
+					input#url.url-form(type='text', name='url', placeholder='google.com', required='')
+					br
+				.right
+					label
+						| use 
+						img(src=images + 'cloudflare.png', href='https://cloudflare.com')
+						| ?

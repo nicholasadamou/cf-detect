@@ -21,7 +21,7 @@
     "express-sanitizer": "^1.0.3",
     "helmet": "^3.11.0",
     "localtunnel": "^1.8.3",
-    "validator": "^9.4.1"
+    "validator": "^10.9.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
@@ -37,12 +37,12 @@
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
-    "gulp-pug": "^3.3.0",
+    "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.4",
-    "imagemin-pngquant": "^5.0.1",
+    "imagemin-pngquant": "^6.0.0",
     "lost": "^8.2.0",
     "node-bourbon": "^4.2.8",
     "node-neat": "^2.0.0-beta.0",

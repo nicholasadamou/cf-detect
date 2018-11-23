@@ -3,6 +3,9 @@
 ![project preview](cf-detect.png)
 
 ![license](https://img.shields.io/apm/l/vim-mode.svg)
+[![DevDependencies](https://img.shields.io/david/dev/nicholasadamou/cf-detect.svg?style=flat-square)](https://david-dm.org/nicholasadamou/cf-detect#info=devDependencies)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=nicholasadamou/cf-detect)](https://dependabot.com)
+[![Known Vulnerabilities](https://snyk.io/test/github/nicholasadamou/cf-detect/badge.svg?targetFile=package.json)](https://snyk.io/test/github/nicholasadamou/cf-detect?targetFile=package.json)
 [![Say Thanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/NicholasAdamou)
 
 [About](#about) / [Requirements](#requirements) / [Installation](#installation) / [Credits](#credits) / [License](#license)

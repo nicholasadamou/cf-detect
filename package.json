@@ -4,7 +4,9 @@
   "description": "A simple web application to check whether a site is running behind Cloudflare.",
   "main": "index.js",
   "scripts": {
-    "start": "gulp build && node index.js"
+    "start": "gulp build && node index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "cloudflare",
@@ -21,7 +23,8 @@
     "express-sanitizer": "^1.0.3",
     "helmet": "^3.11.0",
     "localtunnel": "^1.8.3",
-    "validator": "^10.9.0"
+    "validator": "^10.9.0",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "autoprefixer": "^9.3.1",
@@ -49,5 +52,6 @@
     "nodemon": "^1.14.6",
     "require-dir": "^1.0.0",
     "rucksack-css": "^1.0.2"
-  }
+  },
+  "snyk": true
 }

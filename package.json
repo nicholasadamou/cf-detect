@@ -21,7 +21,7 @@
     "express-sanitizer": "^1.0.3",
     "helmet": "^3.11.0",
     "localtunnel": "^1.8.3",
-    "validator": "^10.9.0"
+    "validator": "^11.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.3.1",

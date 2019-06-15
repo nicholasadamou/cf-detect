@@ -12,7 +12,7 @@ module.exports = function() {
          * If it is set to an empty string the environment will be extract from
          * the NODE_ENV environment var.
          */
-        environment: 'production',
+        environment: 'development',
 		// The `package.json` file
         pkg: require('../package.json'),
         // Root dir
@@ -23,9 +23,9 @@ module.exports = function() {
 		build: 'public/',
 		// Location of various assets (e.g. fonts, css, images, etc)
 		assets: 'assets/',
-        // Where the images are inside the src folder.
-        // They will be copied to the same dir on the dist folder.
-        images: 'assets/images',
+		// Where the images are inside the src folder.
+		// They will be copied to the same dir on the dist folder.
+		images: 'assets/images',
         /**
          * Pug directory. This is the dir where all the Pug files should live
          * Important: only *.pug files will be compiled in this exact dir and not any sub dir.

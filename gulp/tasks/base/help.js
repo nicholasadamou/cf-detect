@@ -12,7 +12,8 @@ gulp.task('help', () => {
     console.log('------------------------------------------------------');
     console.log('    clean: Removes all the compiled files in ' + config.build);
     console.log('    pug: Compile the Pug templates');
-    console.log('    sass: Compile the SASS styles');
+	console.log('    sass: Compile the SASS styles');
+	console.log(`    images: copy image files from ${config.images} to ${config.build}assets/images`)
 	console.log('    build: build the project');
     console.log('    start: Compile and watch for changes (for dev.)');
     console.log('    help: Print a list of available Gulp tasks');

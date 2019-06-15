@@ -20,7 +20,7 @@ app.use(express.static("public"));
 app.disable('x-powered-by')
 app.use(sanitizer())
 app.use(helmet());
-dotenv.load();
+dotenv.config();
 app.use(cookieSession({
     secret: process.env.SECRET,
     cookie: {
@@ -54,10 +54,10 @@ app.post('/check', function(req, res, next) {
         });
     } else {
         cloudflareDetect(site).then(cf => {
-            if (cf == true) {
-                status = 'uses <img src="imgs/cloudflare.png" href="https://cloudflare.com">!';
+            if (cf) {
+                status = 'uses <img src="public/assets/images/cloudflare.png" href="https://cloudflare.com">!';
             } else {
-                status = 'doesn\'t seem to be using <img src="imgs/cloudflare.png" href="https://cloudflare.com">.';
+                status = 'doesn\'t seem to be using <img src="public/assets/images/cloudflare.png" href="https://cloudflare.com">.';
             }
     
             fs.readFile(__dirname + '/public/status.html', function(err, data) {

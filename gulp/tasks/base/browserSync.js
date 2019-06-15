@@ -21,7 +21,6 @@ gulp.task('browsersync', function() {
 	// Watch for build changes and reload browser
 	browserSync.watch(`${paths.to.build}/**/*`).on('change', browserSync.reload);
 	// Watch for source changes and execute associated tasks
-	gulp.watch(`${paths.to.assets.in}/images/**/*`, ['images']);
 	gulp.watch(`${paths.to.sass.in}/**/*.scss`, ['sass']);
 	gulp.watch(`${paths.to.pug.in}/**/*.pug`, ['pug']);
 });

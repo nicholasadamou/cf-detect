@@ -5,21 +5,21 @@
 ![license](https://img.shields.io/apm/l/vim-mode.svg)
 [![DevDependencies](https://img.shields.io/david/dev/nicholasadamou/cf-detect.svg?style=flat-square)](https://david-dm.org/nicholasadamou/cf-detect#info=devDependencies)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=nicholasadamou/cf-detect)](https://dependabot.com)
-[![Known Vulnerabilities](https://snyk.io/test/github/nicholasadamou/cf-detect/badge.svg?targetFile=package.json)](https://snyk.io/test/github/nicholasadamou/cf-detect?targetFile=package.json)
 [![Say Thanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/NicholasAdamou)
 
 [About](#about) / [Requirements](#requirements) / [Installation](#installation) / [Credits](#credits) / [License](#license)
 
 ## About
-`cf-detect` is a simple web application to check whether a site is running behind Cloudflare. 
+
+`cf-detect` is a simple web application to check whether a site is running behind Cloudflare.
 
 ## Installation
 
 Clone the repository and install all dependencies by running:
 
 ```
-$ git clone https://github.com/nicholasadamou/cf-detect 
-$ cd cf-detect/ 
+$ git clone https://github.com/nicholasadamou/cf-detect
+$ cd cf-detect/
 $ yarn install
 ```
 
@@ -38,11 +38,12 @@ $ yarn start
 You can then access the service by navigating to [`localhost:3000`](http://localhost:3000/).
 
 ## Credits
-- Cloudflare's logo was taken from [seeklogo.com](https://seeklogo.com/vector-logo/294312/cloudflare).
+
+-   Cloudflare's logo was taken from [seeklogo.com](https://seeklogo.com/vector-logo/294312/cloudflare).
 
 ## Related
 
-- [cloudflare-detect](https://github.com/k4m4/cloudflare-detect) - Detect whether a site is running behind Cloudflare.
+-   [cloudflare-detect](https://github.com/k4m4/cloudflare-detect) - Detect whether a site is running behind Cloudflare.
 
 ## License
 

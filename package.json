@@ -14,8 +14,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "gulp build",
-    "start": "gulp build && node index.js",
+    "build": "npx gulp build",
+    "start": "npx gulp build && node index.js",
     "test": "exit 0"
   },
   "keywords": [

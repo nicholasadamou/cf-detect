@@ -16,10 +16,7 @@
   "scripts": {
     "build": "gulp build",
     "start": "gulp build && node index.js",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect",
-    "test": "snyk test",
-    "prepublish": "npm run snyk-protect"
+    "test": "exit 0"
   },
   "keywords": [
     "cloudflare",
@@ -38,8 +35,7 @@
     "helmet": "^3.11.0",
     "imagemin-pngquant": "^8.0.0",
     "is-up": "^4.0.0",
-    "moment": "^2.22.2",
-    "snyk": "^1.231.0",
+    "moment": "^2.22.2"
     "validator": "^13.0.0"
   },
   "devDependencies": {
@@ -69,5 +65,4 @@
     "rucksack-css": "^1.0.2",
     "undertaker-forward-reference": "^1.0.2"
   },
-  "snyk": true
 }

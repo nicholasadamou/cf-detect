@@ -35,7 +35,7 @@
     "helmet": "^3.11.0",
     "imagemin-pngquant": "^8.0.0",
     "is-up": "^4.0.0",
-    "moment": "^2.22.2"
+    "moment": "^2.22.2",
     "validator": "^13.0.0"
   },
   "devDependencies": {

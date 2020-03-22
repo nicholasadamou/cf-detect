@@ -64,5 +64,5 @@
     "require-dir": "^1.0.0",
     "rucksack-css": "^1.0.2",
     "undertaker-forward-reference": "^1.0.2"
-  },
+  }
 }

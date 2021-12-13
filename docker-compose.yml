@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+    cf-detect:
+        env_file: ./.env
+        image: nicholasadamou/cf-detect:latest
+        container_name: cf-detect
+        ports:
+            - 3000:3000

@@ -1,85 +1,104 @@
-var express          = require('express');
-var bodyParser       = require('body-parser');
-var fs               = require('fs');
-var cookieSession    = require('cookie-session')
-var cloudflareDetect = require('cloudflare-detect');
-var validator        = require('validator');
-var sanitizer        = require('express-sanitizer');
-var helmet           = require('helmet');
-var dotenv           = require('dotenv')
-var app              = express();
+const express = require("express");
+const bodyParser = require("body-parser");
+const fs = require("fs");
+const cookieSession = require("cookie-session");
+const cloudflareDetect = require("cloudflare-detect");
+const validator = require("validator");
+const sanitizer = require("express-sanitizer");
+const helmet = require("helmet");
+const dotenv = require("dotenv");
+const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
+app.use(
+	bodyParser.urlencoded({
+		extended: false,
+	})
+);
 
 app.use(express.static(__dirname));
 app.use(express.static("public"));
 
-app.disable('x-powered-by')
-app.use(sanitizer())
+app.disable("x-powered-by");
+app.use(sanitizer());
 app.use(helmet());
 dotenv.config();
-app.use(cookieSession({
-    secret: process.env.SECRET,
-    cookie: {
-        maxAge:60000,
-        httpOnly: true,
-        secure: true
-    }
-}));
+app.use(
+	cookieSession({
+		secret: process.env.SECRET,
+		cookie: {
+			maxAge: 60000,
+			httpOnly: true,
+			secure: true,
+		},
+	})
+);
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+app.get("/", function (req, res) {
+	res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
-app.post('/check', function(req, res, next) {
-    site = validator.escape(req.sanitize(req.body.url).replace('https://', '').replace('http://', ''));
+app.post("/check", function (req, res, next) {
+	let site = validator.escape(
+		req
+			.sanitize(req.body.url)
+			.replace("https://", "")
+			.replace("http://", "")
+	);
 
-    if (!validator.isURL(site)) {
-        status = 'doesn\'t seem to be a valid url.'
+	if (!validator.isURL(site)) {
+		const status = "doesn't seem to be a valid url.";
 
-        fs.readFile(__dirname + '/public/status.html', function(err, data) {
-            if (err) {
-                throw err;
-            }
+		fs.readFile(__dirname + "/public/status.html", function (err, data) {
+			if (err) {
+				throw err;
+			}
 
-            var html = data.toString();
-            var html = html.replace(/{{SITE_LINK}}/g, site);
-            var html = html.replace(/{{SITE}}/g, site);
-            var html = html.replace(/{{STATUS}}/g, status);
+			let html = data.toString();
+			html = html.replace(/{{SITE_LINK}}/g, site);
+			html = html.replace(/{{SITE}}/g, site);
+			html = html.replace(/{{STATUS}}/g, status);
 
-            return res.send(html);
-        });
-    } else {
-        cloudflareDetect(site).then(cf => {
-            if (cf) {
-                status = 'uses <img src="public/assets/images/cloudflare.png" href="https://cloudflare.com">!';
-            } else {
-                status = 'doesn\'t seem to be using <img src="public/assets/images/cloudflare.png" href="https://cloudflare.com">.';
-            }
-    
-            fs.readFile(__dirname + '/public/status.html', function(err, data) {
-                if (err) {
-                    throw err;
-                }
-    
-                var html = data.toString();
-                var site_link = 'http://' + site;
-                var html = html.replace(/{{SITE_LINK}}/g, site_link);
-                var html = html.replace(/{{SITE}}/g, site);
-                var html = html.replace(/{{STATUS}}/g, status);
-    
-                res.send(html);
-            });
-        }).catch(next);
-    }
+			return res.send(html);
+		});
+	} else {
+		site = "https://" + site;
+
+		cloudflareDetect(site)
+			.then((cf) => {
+				let status;
+
+				if (cf) {
+					status =
+						'uses <img src="public/assets/images/cloudflare.png" href="https://cloudflare.com">!';
+				} else {
+					status =
+						'doesn\'t seem to be using <img src="public/assets/images/cloudflare.png" href="https://cloudflare.com">.';
+				}
+
+				fs.readFile(
+					__dirname + "/public/status.html",
+					function (err, data) {
+						if (err) {
+							throw err;
+						}
+
+						let html = data.toString();
+						html = html.replace(/{{SITE_LINK}}/g, site);
+						html = html.replace(/{{SITE}}/g, site);
+						html = html.replace(/{{STATUS}}/g, status);
+
+						res.send(html);
+					}
+				);
+			})
+			.catch(next);
+	}
 });
 
 app.use(function (err, req, res, next) {
-    console.log(err)
-    res.status(500).send('Something broke!')
+	console.log(err);
+	res.status(500).send("Something broke!");
 });
 
 console.log("-> Running node server @: http://localhost:3000/");
